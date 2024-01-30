@@ -4,14 +4,8 @@
  * This generated file contains a sample Java application project to get you started.
  * For more details on building Java & JVM projects, please refer to https://docs.gradle.org/8.5/userguide/building_java_projects.html in the Gradle documentation.
  */
-
 plugins {
-    id 'application'
-}
-
-repositories {
-    // Use Maven Central for resolving dependencies.
-    mavenCentral()
+    id 'java'
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
@@ -21,8 +15,13 @@ java {
     }
 }
 
-jar {
-  manifest {
-   attributes 'Main-Class': 'com.example.Main'
-  }
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.eclipse.jetty:jetty-servlet:11.0.17'
+    implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.15.3'
+    implementation 'org.eclipse.jetty:jetty-servlets:11.0.19'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.3'
 }

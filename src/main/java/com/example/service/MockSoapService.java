@@ -1,5 +1,3 @@
-package com.example.service;
-
 import com.example.dto.CustomerDTO;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
