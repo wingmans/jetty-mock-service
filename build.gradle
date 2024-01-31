@@ -4,8 +4,33 @@
  * This generated file contains a sample Java application project to get you started.
  * For more details on building Java & JVM projects, please refer to https://docs.gradle.org/8.5/userguide/building_java_projects.html in the Gradle documentation.
  */
+ 
 plugins {
     id 'java'
+    id 'application'
+}
+
+// jar {
+//   manifest {
+//     attributes(
+//       'Main-Class': 'com.example.Main',
+//     )
+//   }
+// }
+
+task customFatJar(type: Jar) {
+    manifest {
+        attributes 'Main-Class': 'com.example.Main'
+    }
+    archiveBaseName = 'all-in-one-jar'
+    archiveClassifier = 'all'
+    // archiveVersion = ''
+    // archiveAppendix = ''
+    // archiveExtension = 'jar'
+    // archiveFile = file("$buildDir/libs/${archiveBaseName}-${archiveVersion}-${archiveAppendix}.${archiveExtension}")
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
@@ -18,10 +43,6 @@ java {
 repositories {
     mavenCentral()    
 }
-
-// repositories {
-//     mavenLocal()
-// }
 
 dependencies {
     implementation 'org.eclipse.jetty:jetty-servlet:11.0.17'
