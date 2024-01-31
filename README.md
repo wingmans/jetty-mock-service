@@ -37,3 +37,11 @@ Access the mock SOAP service at:
 Access the mock REST service at:
 
 * http://localhost:8080/rest
+
+
+
+6a. BUILD with Gradle
+#build with ./gradlew build customFatjar
+
+6b. RUN with gradle
+$./gradlew build customFatjar
