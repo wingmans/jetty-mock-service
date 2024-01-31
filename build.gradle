@@ -16,8 +16,12 @@ java {
 }
 
 repositories {
-    mavenCentral()
+    mavenCentral()    
 }
+
+// repositories {
+//     mavenLocal()
+// }
 
 dependencies {
     implementation 'org.eclipse.jetty:jetty-servlet:11.0.17'
